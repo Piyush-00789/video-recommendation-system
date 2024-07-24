@@ -1,0 +1,93 @@
+{% extends 'video/index.html' %}
+{% block second %}{% endblock second %}
+{% block title %}Choose your category{% endblock title %}
+{% block body %}
+    {% load staticfiles %}
+<style>
+
+.bg-img {
+  /* The image used */
+  background-image: url({% static 'video/images/userchoice.jpg' %});
+
+  /* Control the height of the image */
+  min-height: 700px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  right: 0;
+ {#margin: 10px;#}
+    margin-right:500px;
+    margin-top:20px;
+  max-width: 300px;
+  padding: 16px;
+  background-color: transparent;
+    border-radius: 10px;
+}
+  input[type=text], input[type=password] {
+
+  padding: 10px;
+  border:#dddddd solid 1px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+input:focus {
+  padding: 10px;
+  border:#ff0e0e solid 1px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+
+button:hover{
+
+    padding: 1px;
+  /*border:#ff0e0e solid 1px;*/
+  background-color: white;
+    color:black;
+}
+button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+    font-size: 50px;
+    width:150px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+button:hover {
+  background-color: black;
+    color:white;/* Green */
+    border-radius: 20px;
+}
+
+</style>
+
+<div class="bg-img">
+        <form method="post" action="" role="form" enctype="multipart/form-data" >
+             <h1 style="margin-left: 450px; color: white;">Choose any category</h1>
+    <div class="container">
+
+        <button type="submit" style="font-family: 'Liu Jian Mao Cao', cursive;">Horror </button>
+        <button type="submit" style="font-family: 'Oswald', sans-serif;">Action </button>
+        <button type="submit" style="font-family: 'Raleway', sans-serif; width: 200px">Thriller </button>
+        <button type="submit" style="font-family: 'Open Sans Condensed', sans-serif;">Sci-Fi </button>
+
+
+
+    </div>
+        </form>
+
+
+
+      </div>
+
+{% endblock %}

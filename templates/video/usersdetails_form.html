@@ -1,0 +1,60 @@
+{% extends 'video/index.html' %}
+{% block second %}{% endblock second %}
+{% block title %}Sign up for free{% endblock title %}
+{% block body %}
+    {% load staticfiles %}
+<style>
+
+.bg-img {
+  /* The image used */
+  background-image: url({% static 'video/images/mainwall.jpg' %});
+
+  /* Control the height of the image */
+  min-height: 700px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  right: 0;
+ {#margin: 10px;#}
+    margin-right:20px;
+    margin-top:20px;
+  max-width: 300px;
+  padding: 16px;
+  background-color: white;
+    border-radius: 10px;
+}
+  input[type=text], input[type=password] {
+
+  padding: 10px;
+  border:#dddddd solid 1px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+input:focus {
+  padding: 10px;
+  border:#ff0e0e solid 1px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+</style>
+
+<div class="bg-img">
+
+            <form class="container" method="post" action="" role="form" enctype="multipart/form-data">
+    <h1>Sign up for free</h1>
+    {% csrf_token %}
+{% include 'video/form_template.html' %}
+
+    <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+    </div>
+
+{% endblock %}

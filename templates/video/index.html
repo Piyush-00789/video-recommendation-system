@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oswald|Raleway&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome to Slingg{% endblock title %}</title>
+    <style>
+        .bg-red{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-red">
+  <a class="navbar-brand" href="{% url 'video:index' %}" style="color: white;">Slingg</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+
+    </ul>
+
+  </div>
+    <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'video:sign-in' %}">
+        {% csrf_token %}
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" style="color: white;">Sign in</button>
+    </form>
+</nav>
+
+<!-- @@2nd-->
+
+{% block second %}
+{% load staticfiles %}
+<!--<img src="{% static 'video/images/mainwall.jpg' %}" style="height:80%; width:100%"/> -->
+
+<div class="card bg-dark text-white">
+  <img src="{% static 'video/images/mainwall.jpg' %}" style="height: 700px; width:100%"/>
+  <div class="card-img-overlay">
+    <h1 class="card-title">Watch the series everyone's talking about.</h1>
+    <p class="card-text" style="font-style: italic">Enjoy the premiere episode of Bard of Blood and join the conversation today.</p>
+    <!--<p class="card-text">Last updated 3 mins ago</p>-->
+  </div>
+    <div class="card-img-overlay" style="padding-top: 300px; max-width: 18rem; font-family: Calibri;">
+
+    <h3 class="card-text">Enjoy the full movies and series for six months.</h3>
+        <form action="{% url 'video:register' %}" method="post">
+            {% csrf_token %}
+        <button type="submit" class="btn btn-dark">Sign up for free</button>
+        </form>
+    <!--<p class="card-text">Last updated 3 mins ago</p>-->
+  </div>
+
+</div>
+{% endblock second %}
+{% block body %}
+
+
+
+
+
+{% endblock %}
+</body>
+</html>
